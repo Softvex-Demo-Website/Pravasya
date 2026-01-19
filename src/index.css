@@ -1,0 +1,324 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+@import url('https://fonts.googleapis.com/css2?family=Rozha+One&display=swap');
+
+/* ===== ROOT VARIABLES ===== */
+:root {
+  --saffron: #FF9933;
+  --deep-green: #0F5132;
+  --earth-brown: #5C4033;
+  --white: #FFFFFF;
+  --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ===== BASE STYLES ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--white);
+  color: var(--earth-brown);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== CUSTOM SCROLLBAR ===== */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--saffron) 0%, #E6802D 100%);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #E6802D 0%, var(--saffron) 100%);
+}
+
+/* Firefox Scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--saffron) #f1f1f1;
+}
+
+/* ===== TYPOGRAPHY ===== */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Playfair Display', serif;
+  color: var(--deep-green);
+  line-height: 1.3;
+}
+
+/* ===== SELECTION ===== */
+::selection {
+  background-color: var(--saffron);
+  color: var(--white);
+}
+
+/* ===== FOCUS STYLES ===== */
+:focus-visible {
+  outline: 2px solid var(--saffron);
+  outline-offset: 2px;
+}
+
+/* ===== BUTTON BASE ===== */
+button,
+a {
+  transition: all 0.3s var(--transition-smooth);
+}
+
+/* ===== IMAGE DEFAULTS ===== */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ===== WARLI ART PATTERN ===== */
+.warli-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23FF9933' stroke-width='1' stroke-opacity='0.15'%3E%3Ccircle cx='20' cy='20' r='8'/%3E%3Ccircle cx='60' cy='20' r='8'/%3E%3Ccircle cx='20' cy='60' r='8'/%3E%3Ccircle cx='60' cy='60' r='8'/%3E%3Cpath d='M20 28 L20 52'/%3E%3Cpath d='M60 28 L60 52'/%3E%3Cpath d='M28 20 L52 20'/%3E%3Cpath d='M28 60 L52 60'/%3E%3Cpath d='M15 25 L10 35 L20 35 Z'/%3E%3Cpath d='M55 25 L50 35 L60 35 Z'/%3E%3Cpath d='M15 55 L25 55 L20 65 Z'/%3E%3Cpath d='M55 55 L65 55 L60 65 Z'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: repeat;
+}
+
+.warli-border {
+  border-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 10 L10 0 L20 10 L10 20 Z' fill='%23FF9933' fill-opacity='0.3'/%3E%3C/svg%3E") 10 round;
+}
+
+/* ===== GLASS EFFECT ===== */
+.glass {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-dark {
+  background: rgba(15, 81, 50, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* ===== GRADIENT TEXT ===== */
+.gradient-text {
+  background: linear-gradient(135deg, var(--saffron) 0%, #E6802D 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ===== HOVER LIFT EFFECT ===== */
+.hover-lift {
+  transition: transform 0.3s var(--transition-smooth), box-shadow 0.3s var(--transition-smooth);
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* ===== IMAGE ZOOM EFFECT ===== */
+.img-zoom {
+  overflow: hidden;
+}
+
+.img-zoom img {
+  transition: transform 0.5s var(--transition-smooth);
+}
+
+.img-zoom:hover img {
+  transform: scale(1.1);
+}
+
+/* ===== UNDERLINE ANIMATION ===== */
+.underline-animate {
+  position: relative;
+}
+
+.underline-animate::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--saffron), #E6802D);
+  transition: width 0.3s var(--transition-smooth);
+}
+
+.underline-animate:hover::after {
+  width: 100%;
+}
+
+/* ===== SWIPER CUSTOMIZATION ===== */
+.swiper-pagination-bullet {
+  background: var(--white) !important;
+  opacity: 0.5 !important;
+  width: 12px !important;
+  height: 12px !important;
+  transition: all 0.3s ease !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: var(--saffron) !important;
+  opacity: 1 !important;
+  width: 30px !important;
+  border-radius: 6px !important;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: var(--white) !important;
+  background: rgba(255, 153, 51, 0.8) !important;
+  width: 50px !important;
+  height: 50px !important;
+  border-radius: 50% !important;
+  transition: all 0.3s ease !important;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background: var(--saffron) !important;
+  transform: scale(1.1);
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 20px !important;
+  font-weight: bold !important;
+}
+
+/* ===== FORM STYLES ===== */
+input,
+textarea,
+select {
+  font-family: 'Poppins', sans-serif;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--saffron);
+  box-shadow: 0 0 0 3px rgba(255, 153, 51, 0.2);
+}
+
+/* ===== DATEPICKER CUSTOMIZATION ===== */
+.react-datepicker {
+  font-family: 'Poppins', sans-serif !important;
+  border: 1px solid #e5e7eb !important;
+  border-radius: 12px !important;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1) !important;
+}
+
+.react-datepicker__header {
+  background: linear-gradient(135deg, var(--saffron) 0%, #E6802D 100%) !important;
+  border-bottom: none !important;
+  border-radius: 12px 12px 0 0 !important;
+  padding: 15px !important;
+}
+
+.react-datepicker__current-month,
+.react-datepicker__day-name {
+  color: white !important;
+}
+
+.react-datepicker__day--selected {
+  background: var(--saffron) !important;
+  border-radius: 50% !important;
+}
+
+.react-datepicker__day:hover {
+  background: rgba(255, 153, 51, 0.2) !important;
+  border-radius: 50% !important;
+}
+
+/* ===== LOADER ANIMATION ===== */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loader {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid var(--saffron);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* ===== PAGE TRANSITION ===== */
+.page-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.page-exit {
+  opacity: 1;
+}
+
+.page-exit-active {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* ===== MASONRY GRID ===== */
+.masonry-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-auto-rows: 10px;
+  gap: 16px;
+}
+
+.masonry-item {
+  grid-row-end: span var(--row-span, 20);
+}
+
+/* ===== RESPONSIVE UTILITIES ===== */
+@media (max-width: 768px) {
+  html {
+    scroll-padding-top: 70px;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    display: none !important;
+  }
+}
+
+/* ===== PRINT STYLES ===== */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
