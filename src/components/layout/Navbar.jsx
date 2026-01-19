@@ -31,7 +31,7 @@ const Navbar = () => {
     ];
 
     const isHomePage = location.pathname === '/';
-    const showNavbarBackground = scrolled || !isHomePage;
+    const showNavbarBackground = scrolled || !isHomePage || isOpen;
 
     return (
         <nav
@@ -90,11 +90,12 @@ const Navbar = () => {
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
-                        initial={{ opacity: 0, x: '100%' }}
-                        animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: '100%' }}
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -20 }}
                         transition={{ type: "spring", damping: 25, stiffness: 200 }}
-                        className="fixed inset-0 bg-white z-40 flex flex-col pt-24 px-6 md:hidden"
+                        className="fixed top-0 left-0 w-full h-auto pb-10 rounded-b-3xl shadow-2xl z-40 flex flex-col pt-24 px-6 md:hidden bg-white"
+                        style={{ backgroundColor: '#ffffff' }}
                     >
                         <div className="flex flex-col gap-6">
                             {navLinks.map((link) => (
